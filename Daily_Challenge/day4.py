@@ -96,16 +96,16 @@ def solution(ineq, eq, n, m):
 두 정수 a, b와 boolean 변수 flag가 매개변수로 주어질 때, flag가 true면 a + b를 false면 a - b를 return 하는 solution 함수를 작성해 주세요.
 
 a	b	flag	result
--4	7	true	3
--4	7	false	-11
+-4	7	True	3
+-4	7	False	-11
 '''
 def solution(a, b, flag):
-    return (a + b if flag.lower() == "true" else a - b)
-# print(solution(-4, 7, "true"))
-# print(solution(-4, 7, "false"))
+    return (a + b if flag else a - b)
+# print(solution(-4, 7, True))
+# print(solution(-4, 7, False))
 ## 다른 풀이
 # solution=lambda a,b,f:[a-b,a+b][f]
 # lambda 함수 : 익명함수를 정의하는데 사용한다.
-# 표현 : lambda 매개변수1, 매개변수2, ... : 표현식       (표현식: 반환값이나 계산 결과 포함한 표현식)
+# 표현 : lambda 매개변수1, 매개변수2, ... : 표현식       (표현식: 반환값이나 계산 결과를 포함한 표현식)
 # ex1) add = lambda x, y: x + y
 # ex2) select_operation = lambda x, y, choice: [x * y, x / y, x + y, x - y][choice] => choice가 0, 1, 2, 3 일 때 표현식(곱하기, 나누기, 더하기, 빼기)을 기준으로 계산해준다.

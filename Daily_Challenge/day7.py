@@ -50,7 +50,8 @@ def solution(l, r):
 # r1 = 20
 # print(solution(l, r))
 # print(solution(l1, r1))
-# set() : 주어지는 문자들을 집합 형태로 저장(중복 허용x)
+# set() : 주어지는 문자들을 집합 형태로 저장
+#     특징  1) 중복을 허용하지 않는다 2) 순서가 없다
 
 
 '''

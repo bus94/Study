@@ -135,5 +135,12 @@ def solution(my_string, queries):
         s[start:end + 1] = s[start:end + 1][::-1]
     return ''.join(s)
 print(solution("rermgorpsam", [[2, 3], [0, 7], [5, 9], [6, 10]]))
-# 해당 인덱스의 문자만 변경하는 것이 아니라 같은 문자 내용이 있는 곳이라면 모두 변경하게 된다.
-# ex) re 라는 문자를 찾아서 바꾸고 싶은데 re라는 문자가 다른 인덱스 범위에도 있다면 그곳도 변경하게 된다.
+# 잘못된 풀이
+# def solution(my_string, queries):
+#     s = list(my_string)
+#     for start, end in queries:
+#         x = s[start:end + 1]
+#         s = s.replace(x, x[::-1])
+#     return my_string
+# 이유: 해당 인덱스의 문자만 변경하는 것이 아니라 같은 문자 내용이 있는 곳이라면 모두 변경하게 된다.
+#       ex) re 라는 문자를 찾아서 바꾸고 싶은데 re라는 문자가 다른 인덱스 범위에도 있다면 그곳도 변경하게 된다.

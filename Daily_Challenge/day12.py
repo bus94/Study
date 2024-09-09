@@ -1,4 +1,4 @@
-# 20240907 day12.py
+# 20240909 day12.py
 
 # day12 리스트(배열)
 
@@ -60,16 +60,16 @@ arr	                intervals	        result
 [1, 2, 3, 4, 5]	    [[1, 3], [0, 4]]	[2, 3, 4, 1, 2, 3, 4, 5]
 '''
 def solution(arr, intervals):
-    print(1)
-    result = ''
+    result = []
     for i in intervals:
-        print(2)
-        print(arr[i[0]:i[1]+1])
-        print(3)
-        result += ','.join(arr[i[0]:i[1] + 1])
-        print("result:", result)
+        result.extend(arr[i[0]:i[1] + 1])
     return result
-print(solution([1, 2, 3, 4, 5], [[1, 3], [0, 4]]))
+# print(solution([1, 2, 3, 4, 5], [[1, 3], [0, 4]]))
+# def solution(arr, intervals):
+#     s1, e1 = intervals[0]
+#     s2, e2 = intervals[1]
+#     return arr[s1:e1 + 1] + arr[s2:e2 + 1]
+# intervals의 값을 변수에 저장하고 해당 변수로 arr의 값들을 그대로 출력해오기
 
 
 '''
@@ -83,9 +83,30 @@ arr	                        result
 [1, 2, 1, 2, 1, 10, 2, 1]	[2, 1, 2, 1, 10, 2]
 '''
 def solution(arr):
-    answer = []
-    return answer
-
+    start = -1
+    end = -1
+    for i in range(len(arr)):
+        if arr[i] == 2 and start == -1:
+            start = i
+        elif arr[i] == 2:
+            end = i
+    if start == -1 and end == -1:
+        result = [-1]
+    elif start != -1 and end == -1:
+        result = [arr[start]]
+    else:
+        result = arr[start:end + 1]
+    return result
+# print(solution([1, 2, 1, 4, 5, 2, 9]))
+# print(solution([1, 2, 1]))
+# print(solution([1, 1, 1]))
+# print(solution([1, 2, 1, 2, 1, 10, 2, 1]))
+def solution(arr):
+    if 2 not in arr:
+        return [-1]
+    return arr[arr.index(2) : len(arr) - arr[::-1].index(2)]
+# arr에 2가 없으면 바로 -1을 리턴한다. arr이 2일 때의 인덱스를 시작하는 인덱스로, arr 전체 길이에서 뒤에서부터 arr의 2를 찾아 끝나는 인덱스를 설정한다. 
+# (만약 시작 인덱스와 끝 인덱스가 같다면 하나의 문자만 출력될 것이다.)
 
 '''
 정수 배열 arr와 query가 주어집니다.
@@ -98,8 +119,14 @@ arr	                query	    result
 [0, 1, 2, 3, 4, 5]	[4, 1, 2]	[1, 2, 3]
 '''
 def solution(arr, query):
-    answer = []
-    return answer
-
-
-
+    for i, q in enumerate(query):
+        if i % 2 == 0:
+            if q < len(arr):
+                del(arr[q + 1:])
+        elif i % 2 != 0:
+            if q < len(arr):
+                del(arr[:q])
+    return arr
+print(solution([0, 1, 2, 3, 4, 5], [4, 1, 2]))
+# 실수한 점: query의 인덱스 기준으로 짝수, 홀수를 나눠야하는데, query의 값을 기준으로 짝수, 홀수로 나눠서 코드 실행 결과는 맞지만 과정에서 틀렸다.
+#           → 문제를 좀 더 꼼꼼하게 확인하기!

@@ -11,8 +11,9 @@ num_list	        n	result
 [5, 2, 1, 7, 5]	    2	[2, 1, 7, 5]
 '''
 def solution(num_list, n):
-    answer = []
-    return answer
+    return num_list[n - 1:]
+# print(solution([2, 1, 6], 3))
+# print(solution([5, 2, 1, 7, 5], 2))
 
 
 '''
@@ -25,8 +26,15 @@ num_list	        n	result
 [5, 2, 1, 7, 5]	    3	[7, 5, 5, 2, 1]
 '''
 def solution(num_list, n):
-    answer = []
-    return answer
+    result = []
+    result.extend(num_list[n:])
+    result.extend(num_list[:n])
+    return result
+# print(solution([2, 1, 6], 1))
+# print(solution([5, 2, 1, 7, 5], 3))
+## 다른 풀이
+# def solution(num_list, n):
+#     return num_list[n:] + num_list[:n]
 
 
 '''
@@ -40,8 +48,14 @@ str_list	            result
 ["l"]	                []
 '''
 def solution(str_list):
-    answer = []
-    return answer
+    for i, s in enumerate(str_list):
+        if s == "l":
+            return str_list[:i]
+        elif s == "r":
+            return str_list[i + 1:]
+    return []
+# print(solution(["u", "u", "l", "r"]))
+# print(solution(["l"]))
 
 
 '''
@@ -52,8 +66,9 @@ num_list	        n	result
 [5, 2, 1, 7, 5]	    3	[5, 2, 1]
 '''
 def solution(num_list, n):
-    answer = []
-    return answer
+    return num_list[:n]
+# print(solution([2, 1, 6], 1))
+# print(solution([5, 2, 1, 7, 5], 3))
 
 
 '''
@@ -65,6 +80,6 @@ num_list	        n	result
 [4, 2, 6, 1, 7, 6]	4	[4, 7]
 '''
 def solution(num_list, n):
-    answer = []
-    return answer
-
+    return num_list[::n]
+# print(solution([4, 2, 6, 1, 7, 6], 2))
+# print(solution([4, 2, 6, 1, 7, 6], 4))

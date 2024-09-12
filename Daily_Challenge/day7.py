@@ -86,7 +86,7 @@ def solution(n):
         n = n // 2 if not n % 2 else 3 * n + 1
         result.append(n)
     return result
-print(solution(10))
+# print(solution(10))
 
 
 '''

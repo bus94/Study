@@ -106,6 +106,6 @@ def solution(arr, idx):
         if arr[a] == 1:
             return a
     return -1
-print(solution([0, 0, 0, 1], 1))
-print(solution([1, 0, 0, 1, 0, 0], 4))
-print(solution([1, 1, 1, 1, 0], 3))
+# print(solution([0, 0, 0, 1], 1))
+# print(solution([1, 0, 0, 1, 0, 0], 4))
+# print(solution([1, 1, 1, 1, 0], 3))

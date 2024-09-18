@@ -1,4 +1,4 @@
-# 20240914 day17.py
+# 20240918 day17.py
 
 # day17 문자열
 
@@ -11,8 +11,13 @@ myString	pat	    result
 "AAAAaaaa"	"a"	    "AAAAaaaa"
 '''
 def solution(myString, pat):
-    answer = ''
-    return answer
+    for i in range(len(myString)):
+        if len(pat) == 1 and myString[-i-1] == pat[0]:
+            return myString[:len(myString)-i]
+        elif myString[i:i + len(pat)] == pat:
+                return myString[:i + len(pat)]
+# print(solution("AbCdEFG", "dE"))
+# print(solution("AAAAaaaa", "a"))
 
 
 '''
@@ -23,8 +28,13 @@ myString	pat	    result
 "aaaa"	    "aa"	3
 '''
 def solution(myString, pat):
-    answer = 0
-    return answer
+    result = 0
+    for i in range(len(myString)):
+        if myString[i:i + len(pat)] == pat:
+            result += 1
+    return result
+# print(solution("banana", "ana"))
+# print(solution("aaaa", "aa"))
 
 
 '''
@@ -36,8 +46,9 @@ strArr	                        result
 ["there","are","no","a","ds"]	["there","are","no","a","ds"]
 '''
 def solution(strArr):
-    answer = []
-    return answer
+    return [s for s in strArr if "ad" not in s]
+# print(solution(["and","notad","abcd"]))
+# print(solution(["there","are","no","a","ds"]))
 
 
 '''
@@ -49,8 +60,9 @@ my_string	    result
 "programmers"	["programmers"]
 '''
 def solution(my_string):
-    answer = []
-    return answer
+    return my_string.split(" ")
+# print(solution("i love you"))
+# print(solution("programmers"))
 
 
 '''
@@ -62,5 +74,6 @@ my_string	            result
 "    programmers  "	    ["programmers"]
 '''
 def solution(my_string):
-    answer = []
-    return answer
+    return my_string.strip().split()
+# print(solution(" i    love  you"))
+# print(solution("    programmers  "))

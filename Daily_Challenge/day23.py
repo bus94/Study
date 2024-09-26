@@ -67,14 +67,15 @@ a	b	result
 2	4	2
 '''
 def solution(a, b):
-    result = 0
     if a % 2 and b % 2:
-        result = a ** 2 + b ** 2
+        return a ** 2 + b ** 2
     elif not a % 2 and not b % 2:
-        
-print(solution(3, 5))
-print(solution(6, 1))
-print(solution(2, 4))
+        return abs(a - b)
+    else:
+        return 2 * (a + b)
+# print(solution(3, 5))
+# print(solution(6, 1))
+# print(solution(2, 4))
 
 
 '''
@@ -87,5 +88,16 @@ date1	        date2	        result
 [1024, 10, 24]	[1024, 10, 24]	0
 '''
 def solution(date1, date2):
-    answer = 0
-    return answer
+    if date1 == date2:
+        return 0
+    for d1, d2 in zip(date1, date2):
+        if d1 < d2:
+            return 1
+        elif d1 > d2:
+            return 0
+# print(solution([2021, 12, 28], [2021, 12, 29]))
+# print(solution([1024, 10, 24], [1024, 10, 24]))
+## 다른 풀이
+# def solution(date1, date2):
+#     return int(date1 < date2)
+# 리스트 자체를 비교하는 조건문을 통해 값을 반환한다. 

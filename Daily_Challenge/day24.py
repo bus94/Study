@@ -36,8 +36,16 @@ picture	                                                                        
 ["x.x", ".x.", "x.x"]	                                                                    3	["xxx...xxx", "xxx...xxx", "xxx...xxx", "...xxx...", "...xxx...", "...xxx...", "xxx...xxx", "xxx...xxx", "xxx...xxx"]
 '''
 def solution(picture, k):
-    answer = []
-    return answer
+    result = []
+    for p in picture:
+        print("p:", p)
+        for i in range(len(p)):
+            print("p[i]:", p[i])
+            p[i].replace(p[i], p[i] * 2, 1)
+            print("추가 후 p[i]:", p[i])
+        result.append(p)
+        result.append(p)
+    return result
 print(solution([".xx...xx.", "x..x.x..x", "x...x...x", ".x.....x.", "..x...x..", "...x.x...", "....x...."], 2))
 print(solution(["x.x", ".x.", "x.x"], 3))
 

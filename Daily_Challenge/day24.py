@@ -1,4 +1,4 @@
-# 20240927 day24.py
+# 20240930 day24.py
 
 # day24 조건문 활용
 
@@ -38,16 +38,22 @@ picture	                                                                        
 def solution(picture, k):
     result = []
     for p in picture:
-        print("p:", p)
+        new_p = ""
         for i in range(len(p)):
-            print("p[i]:", p[i])
-            p[i].replace(p[i], p[i] * 2, 1)
-            print("추가 후 p[i]:", p[i])
-        result.append(p)
-        result.append(p)
+            new_p += p[i] * k
+        for j in range(k):
+            result.append(new_p)
     return result
-print(solution([".xx...xx.", "x..x.x..x", "x...x...x", ".x.....x.", "..x...x..", "...x.x...", "....x...."], 2))
-print(solution(["x.x", ".x.", "x.x"], 3))
+# print(solution([".xx...xx.", "x..x.x..x", "x...x...x", ".x.....x.", "..x...x..", "...x.x...", "....x...."], 2))
+# print(solution(["x.x", ".x.", "x.x"], 3))
+## 다른 풀이
+# def solution(picture, k):
+#     answer = []
+#     for i in range(len(picture)):
+#         for _ in range(k):
+#             answer.append(picture[i].replace('.', '.' * k).replace('x', 'x' * k))
+#     return answer
+# replace를 이용하여 각각의 문자열을 k번 반복하여 리스트에 넣어 반환한다.
 
 
 '''
@@ -60,8 +66,15 @@ arr	                    k	result
 [1, 2, 3, 100, 99, 98]	2	[3, 4, 5, 102, 101, 100]
 '''
 def solution(arr, k):
-    answer = []
-    return answer
+    result = []
+    for a in arr:
+        if k % 2:
+            result.append(a * k)
+        elif not k % 2:
+            result.append(a + k)
+    return result
+# print(solution([1, 2, 3, 100, 99, 98], 3))
+# print(solution([1, 2, 3, 100, 99, 98], 2))
 
 
 '''
@@ -73,8 +86,15 @@ myString	    result
 "jjnnllkkmm"	"llnnllllmm"
 '''
 def solution(myString):
-    answer = ''
-    return answer
+    result = ""
+    for i, m in enumerate(myString):
+        if m < "l":
+            result += "l"
+        else:
+            result += m
+    return result
+# print(solution("abcdevwxyz"))
+# print(solution("jjnnllkkmm"))
 
 
 '''
@@ -87,5 +107,22 @@ n	result
 1	[[1]]
 '''
 def solution(n):
-    answer = [[]]
-    return answer
+    result = []
+    for i in range(n):
+        r = []
+        for j in range(n):
+            p = 0
+            if i == j:
+                p = 1
+            r.append(p)
+        result.append(r)
+    return result
+# print(solution(3))
+# print(solution(6))
+# print(solution(1))
+## 다른 풀이
+# def solution(n):
+#     result = [[0] * n for i in range(n)]
+#     for i in range(n): result[i][i] = 1
+#     return result
+# 2차원 배열의 0으로 n x n 크기의 리스트를 생성한 후, result[i][j]에서 i == j인 경우의 리스트 요소값은 1로 지정한 후 반환한다.

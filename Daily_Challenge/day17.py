@@ -19,9 +19,6 @@ def solution(myString, pat):
                 return myString[:i + len(pat)]
 # print(solution("AbCdEFG", "dE"))
 # print(solution("AAAAaaaa", "a"))
-## 다른 풀이
-# solution=lambda x,y:x[:x.rindex(y)+len(y)]
-# 
 
 
 '''
@@ -80,4 +77,4 @@ my_string	            result
 def solution(my_string):
     return my_string.strip().split()
 # print(solution(" i    love  you"))
-# print(solution("    programmers  "	))
+# print(solution("    programmers  ")

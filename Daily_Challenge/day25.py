@@ -1,4 +1,4 @@
-# 20241001 day25.py
+# 20241008 day25.py
 
 # day25 조건문 활용
 
@@ -12,11 +12,10 @@ n	result
 5	[[1, 2, 3, 4, 5], [16, 17, 18, 19, 6], [15, 24, 25, 20, 7], [14, 23, 22, 21, 8], [13, 12, 11, 10, 9]]
 '''
 def solution(n):
-    result = [n][n]
-    n2 = n * n
-    for i in range(n):
-        for j in range(n):
-            
+    arr = [[0] * n for a in n]
+    dir = [[0][1], [0][-1], [-1][0], [1][0]] # 오른쪽, 왼쪽, 위, 아래
+    x, y = 0, 0
+    
 print(solution(4))
 print(solution(5))
 
